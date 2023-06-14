@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('type_tiket', 100);
             $table->string('konser', 255);
             $table->string('status', 100);
+            $table->string('confirmed', 100);
             $table->timestamps();
         });
     }
