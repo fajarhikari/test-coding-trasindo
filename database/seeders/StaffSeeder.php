@@ -17,14 +17,14 @@ class StaffSeeder extends Seeder
         $data = [
             [
                 'username' => 'john.doe',
-                'password' => bcrypt('secret123'),
+                'password' => 'secret123',
                 'name' => 'John Doe',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'username' => 'jane.smith',
-                'password' => bcrypt('password123'),
+                'password' => 'password123',
                 'name' => 'Jane Smith',
                 'created_at' => now(),
                 'updated_at' => now(),

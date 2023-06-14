@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PenontonController;
+use App\Http\Controllers\StaffController;
+use App\Models\Staff;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,11 +26,18 @@ Route::get('/', function () {
     return view('main');
 });
 Route::get('/dasboard', function () {
+    $status = session()->get('status');
+    if (!$status){
+        return view('index');
+    }
     return view('admin.index');
 });
 Route::get('/daftarakun', function () {
     return view('daftarakun');
 });
+
+
+
 
 
 Route::get('/daftar', [PenontonController::class, 'index']);
@@ -38,3 +47,5 @@ Route::post('/tambahdata', [PenontonController::class, 'tambahdata']);
 Route::post('/editdata', [PenontonController::class, 'editdata']);
 Route::post('/cektamu', [PenontonController::class, 'detaildata']);
 Route::post('/daftartamu', [PenontonController::class, 'daftartamu']);
+Route::post('/login', [StaffController::class, 'login']);
+Route::get('/logout', [StaffController::class, 'logout']);

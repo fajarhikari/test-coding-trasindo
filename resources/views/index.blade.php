@@ -170,17 +170,17 @@
 
 
     <main class="form-signin w-100 m-auto">
-        <form action="/insert" method="POST">
+        <form action="login" method="POST">
             @csrf
             <img class="mb-4" src="asset/brand/bootstrap-logo.svg" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">ADMIN LOGIN</h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="">
+                <input type="text" class="form-control" name="username" id="floatingInput" placeholder="">
                 <label for="floatingInput">Username</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="">
+                <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="">
                 <label for="floatingPassword">Password</label>
             </div>
 

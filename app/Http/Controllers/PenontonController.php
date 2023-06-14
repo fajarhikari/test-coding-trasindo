@@ -22,7 +22,7 @@ class PenontonController extends Controller
 
         $status = session()->get('status');
         if (!$status){
-
+            return view('index');
         }
         $penonton = Penonton::all();
 
@@ -31,6 +31,11 @@ class PenontonController extends Controller
     public function index2() : View
     {
         //
+        $status = session()->get('status');
+        if (!$status){
+            return view('index');
+        }
+
         $penonton = Penonton::all();
         $penonton2 = Penonton::where('status','Log In')->get();
         $penonton3 = Penonton::where('status','Wait')->get();
@@ -49,6 +54,12 @@ class PenontonController extends Controller
     public function tambahdata(Request $request) : RedirectResponse
     {
         //
+        $status = session()->get('status');
+        if (!$status){
+            return redirect('coba');
+        }
+
+
         Penonton::insert([
             'nomorid' => $request->nomor,
             'name' => $request->name,
@@ -89,7 +100,10 @@ class PenontonController extends Controller
     public function editdata(Request $request) : RedirectResponse
     {
         //
-
+        $status = session()->get('status');
+        if (!$status){
+            return redirect('index');
+        }
 
         DB::table('penontons')->where('id',$request->id)->update([
             'nomorid' => $request->nomor,
@@ -110,12 +124,20 @@ class PenontonController extends Controller
 
     public function deletedata($id) : RedirectResponse
     {
+        $status = session()->get('status');
+        if (!$status){
+            return view('index');
+        }
         DB::table('penontons')->where('id',$id)->delete();
         return redirect('/daftar');
     }
 
     public function detaildata(Request $request) : View
     {
+        $status = session()->get('status');
+        if (!$status){
+            return view('index');
+        }
         $penonton = Penonton::Where('nomorid',$request->nomor)->first();
 
         DB::table('penontons')->where('nomorid',$request->nomor)->update([

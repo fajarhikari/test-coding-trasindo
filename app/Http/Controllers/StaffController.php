@@ -23,16 +23,24 @@ class StaffController extends Controller
         $u = $request->username;
         $p = $request->password;
 
+
+
         $staff = Staff::where(['username' => $u, 'password' => $p])->get();
 
         if ($staff->count() > 0){
             $request->session()->put('username', $u);
             $request->session()->put('status', 'Admin');
-            return redirect('dashboard');
+            return redirect('dasboard');
         } else {
             return redirect('coba');
         }
 
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/coba');
     }
 
     /**
