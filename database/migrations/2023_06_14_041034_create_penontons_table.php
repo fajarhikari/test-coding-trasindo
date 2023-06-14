@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('penontons', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->string('nomorid', 100)->uniqid;
             $table->string('name', 100);
             $table->string('gender', 100);
