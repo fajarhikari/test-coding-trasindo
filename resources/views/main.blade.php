@@ -281,22 +281,22 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
-                                    href="#">
+                                    href="/dasboard">
                                     Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="/daftar">
                                     Daftar Nama
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="/laporan">
                                     Laporan
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link d-flex align-items-center gap-2" href="/logout">
                                     Log Out
                                 </a>
                             </li>
@@ -309,7 +309,7 @@
 
 
                 <h2>TES</h2>
-                <div class="container-fluid">
+                <div class="container vh-100">
                     @yield('container')
                 </div>
 

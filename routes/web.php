@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PenontonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,13 @@ Route::get('/coba', function () {
 Route::get('/', function () {
     return view('main');
 });
-Route::get('/admin', function () {
+Route::get('/dasboard', function () {
     return view('admin.index');
 });
+
+
+Route::get('/daftar', [PenontonController::class, 'index']);
+Route::get('/hapusdata/{id}', [PenontonController::class, 'deletedata']);
+Route::post('/tambahdata', [PenontonController::class, 'tambahdata']);
+Route::post('/editdata', [PenontonController::class, 'editdata']);
+Route::post('/cektamu', [PenontonController::class, 'detaildata']);
