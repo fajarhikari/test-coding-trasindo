@@ -170,26 +170,37 @@
 
 
     <main class="form-signin w-100 m-auto">
-        <form action="/insert" method="POST">
+        <form action="/daftartamu" method="POST">
             @csrf
-            <img class="mb-4" src="asset/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">ADMIN LOGIN</h1>
+            <center><img class="mb-4" src="asset/brand/bootstrap-logo.svg" alt="" width="72" height="57"></center>
+            <h1 class="h3 mb-3 fw-normal">DAFTAR AKUN</h1>
 
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="">
-                <label for="floatingInput">Username</label>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                    placeholder="">
             </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="">
-                <label for="floatingPassword">Password</label>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                <input type="text" name="gender" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Male/Female">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Konser</label>
+                <input type="text" name="konser" class="form-control" id="exampleFormControlInput1"
+                    placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Jenis Tiket</label>
+                <input type="text" name="type" class="form-control" id="exampleFormControlInput1"
+                    placeholder="">
             </div>
 
-
-            <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+            <button class="btn btn-primary w-100 py-2" type="submit">Daftar Akun</button>
             <br>
 
             <div class="d-grid gap-2">
-                <a href="daftarakun" class="btn btn-primary btn btn-block my-2">Daftar Sebagai Penonton</a>
+                <a href="coba" class="btn btn-primary btn btn-block my-2">Anda Admin Klik disini</a>
             </div>
         </form>
     </main>

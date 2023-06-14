@@ -75,6 +75,7 @@
                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit{{ $guest->id }}">
                             EDIT</button>
                         <a href="hapusdata/{{ $guest->id }}" class="btn btn-danger"> Hapus</a>
+                        <a href="confirm/{{ $guest->id }}" class="btn btn-secondary"> Hapus</a>
                         <div class="modal fade" id="edit{{ $guest->id }}" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Staff;
 use App\Http\Requests\StoreStaffRequest;
 use App\Http\Requests\UpdateStaffRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class StaffController extends Controller
 {
@@ -14,6 +16,23 @@ class StaffController extends Controller
     public function index()
     {
         //
+    }
+    public function login(Request $request) : RedirectResponse
+    {
+        //
+        $u = $request->username;
+        $p = $request->password;
+
+        $staff = Staff::where(['username' => $u, 'password' => $p])->get();
+
+        if ($staff->count() > 0){
+            $request->session()->put('username', $u);
+            $request->session()->put('status', 'Admin');
+            return redirect('dashboard');
+        } else {
+            return redirect('coba');
+        }
+
     }
 
     /**

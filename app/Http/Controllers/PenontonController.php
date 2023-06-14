@@ -19,9 +19,23 @@ class PenontonController extends Controller
     public function index() : View
     {
         //
+
+        $status = session()->get('status');
+        if (!$status){
+
+        }
         $penonton = Penonton::all();
 
         return view('admin.daftar', compact('penonton'));
+    }
+    public function index2() : View
+    {
+        //
+        $penonton = Penonton::all();
+        $penonton2 = Penonton::where('status','Log In')->get();
+        $penonton3 = Penonton::where('status','Wait')->get();
+
+        return view('admin.laporan', compact('penonton','penonton3','penonton2'));
     }
 
     /**
@@ -50,6 +64,26 @@ class PenontonController extends Controller
         $penonton = Penonton::all();
 
         return redirect('/daftar');
+    }
+
+    public function daftartamu(Request $request) : RedirectResponse
+    {
+        //
+        Penonton::insert([
+            'nomorid' => rand(2111,99999),
+            'name' => $request->name,
+            'gender' => $request->gender,
+            'type_tiket' => $request->type,
+            'konser' => $request->konser,
+            'status' => 'Wait',
+            'confirmed' => 'No',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $penonton = Penonton::all();
+
+        return redirect('/daftarakun');
     }
 
     public function editdata(Request $request) : RedirectResponse
